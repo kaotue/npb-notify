@@ -3,8 +3,7 @@ import os
 from dataclasses import dataclass
 
 import app
-import app_ver2
-from NpbContext import NpbContext
+from npb_context import NpbContext
 from classes.top_page import TopPage
 
 BASE_DOMAIN_NAME = os.environ['NPB_BASE_DOMAIN_NAME']
@@ -25,7 +24,11 @@ def lambda_context():
 
 class TestMethods(unittest.TestCase):
     def test_app(self):
-        result = app.main2('https://{0}/npb/game/2021020624/top'.format(BASE_DOMAIN_NAME), '#ffdd00', '試合終了')
+        context = NpbContext(top_url='https://{0}/npb/teams/5/top'.format(BASE_DOMAIN_NAME),
+                             color='#ffdd00')
+        top_page = TopPage(game_page_url='https://{0}/npb/game/2021020624/top'.format(BASE_DOMAIN_NAME),
+                           game_status='試合終了')
+        result = app.main2(context, top_page)
         print(f'{result=}')
         self.assertEqual(True, True)
 
