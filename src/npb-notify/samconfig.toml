@@ -1,0 +1,12 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+#stack_name = "npb-notify"
+s3_bucket = "npb-notify"
+s3_prefix = "modules/npb-notify"
+region = "ap-northeast-1"
+capabilities = "CAPABILITY_IAM"
+#parameter_overrides = [
+#    "TagName=test",
+#]
