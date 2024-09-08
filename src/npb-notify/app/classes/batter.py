@@ -55,7 +55,12 @@ class Batter(Player):
 
     @property
     def 打率_label(self) -> str:
-        return "1.000" if self.打率 == 1 else f"{self.打率:.3f}"[1:]
+        if self.打率 == 1:
+            return "1.000"
+        elif self.打率 > 0:
+            return f"{self.打率:.3f}"[1:]
+        else:
+            return '-'
 
     @property
     def 直近_調子(self) -> int:

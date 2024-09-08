@@ -2,7 +2,12 @@ import datetime
 
 
 def conv_ave(val: str) -> float:
-    return float(val) if val == '1' else float('0' + val)
+    if val == '1':
+        return 1.0
+    elif val[0] == '.':
+        return float('0' + val)
+    else:
+        return -1.0
 
 
 def conv_date(val: str) -> datetime.date:
