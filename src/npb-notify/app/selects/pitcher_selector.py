@@ -7,7 +7,8 @@ from classes.pitcher_recent_stats import PitcherRecentStats
 
 class PitcherSelector(BaseSelector):
     def select(self) -> Pitcher:
-        html = self.download()
+        if not (html := self.download()):
+            return None
         soup = BeautifulSoup(html, 'html.parser')
         pitcher = Pitcher()
         pitcher.link = self.url

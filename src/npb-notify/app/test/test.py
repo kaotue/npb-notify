@@ -23,12 +23,17 @@ def lambda_context():
 
 
 class TestMethods(unittest.TestCase):
-    def test_app(self):
-        context = NpbContext(top_url='https://{0}/npb/teams/5/top'.format(BASE_DOMAIN_NAME),
-                             color='#ffdd00')
-        top_page = TopPage(game_page_url='https://{0}/npb/game/2021020624/top'.format(BASE_DOMAIN_NAME),
-                           game_status='試合終了')
-        result = app.main2(context, top_page)
+    # def test_app(self):
+    #     context = NpbContext(top_url='https://{0}/npb/teams/5/top'.format(BASE_DOMAIN_NAME),
+    #                          color='#ffdd00')
+    #     top_page = TopPage(game_page_url='https://{0}/npb/game/2021020624/top'.format(BASE_DOMAIN_NAME),
+    #                        game_status='試合終了')
+    #     result = app.main2(context, top_page)
+    #     print(f'{result=}')
+    #     self.assertEqual(True, True)
+
+    def test_lambda_handler(self):
+        result = app.lambda_handler(None, lambda_context())
         print(f'{result=}')
         self.assertEqual(True, True)
 

@@ -27,7 +27,7 @@ def get_batters(html, team_num):
         f'#strt_mem > section > div > section:nth-child({team_num}) > table:nth-child(3) > tbody > tr')
     batters = []
     if not rows:
-        return batters
+        return None
     for row in rows:
         batter = Batter(
             打順=row.select_one(f'td:nth-child(1)').get_text(),

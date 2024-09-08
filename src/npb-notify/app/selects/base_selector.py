@@ -10,6 +10,8 @@ class BaseSelector:
         self.url = url
 
     def download(self):
+        if not self.url:
+            return None
         req = urllib.request.Request(self.url)
         with urllib.request.urlopen(req) as res:
             html = res.read()

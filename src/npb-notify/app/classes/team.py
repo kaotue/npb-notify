@@ -1,5 +1,5 @@
 from pydantic.dataclasses import dataclass
-from typing import List
+from typing import List, Optional
 from classes.pitcher import Pitcher
 from classes.batter import Batter
 
@@ -7,8 +7,8 @@ from classes.batter import Batter
 @dataclass
 class Team:
     name: str
-    pitcher: Pitcher = None
-    batters: List[Batter] = None
+    pitcher: Optional[Pitcher] = None
+    batters: Optional[List[Batter]] = None
 
     @property
     def label(self) -> List[str]:

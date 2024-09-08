@@ -7,6 +7,8 @@ from classes.batter_recent_stats import BatterRecentStats
 
 class BatterSelector(BaseSelector):
     def select(self, batter):
+        if not (html := self.download()):
+            return None
         html = self.download()
         soup = BeautifulSoup(html, 'html.parser')
         header_title = soup.select_one('#js-tabDom01 > section:nth-child(1) > header > h2').get_text().strip()

@@ -18,6 +18,8 @@ class Game:
         return f'*:baseball: {self.title}*\n*{self.home_team.name} vs {self.away_team.name}*\n*<{self.link}|{self.status}>*'
 
     def get_notify_message(self):
+        if not self.home_team.batters or not self.away_team.batters:
+            return None
         messages = []
         messages.extend(self.home_team.label)
         messages.append('')
