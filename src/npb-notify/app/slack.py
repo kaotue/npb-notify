@@ -1,7 +1,7 @@
 import urllib3, json, os, re
 
 http = urllib3.PoolManager()
-url = os.getenv('NPB_WEBHOOK_URL_SLACK_DEV', '')
+url = os.getenv('WEBHOOK_URL_SLACK_DEV', '')
 if not url:
     url = os.environ['WEBHOOK_URL']
 
