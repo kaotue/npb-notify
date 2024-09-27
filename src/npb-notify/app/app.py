@@ -11,11 +11,13 @@ BASE_DOMAIN_NAME = os.environ['NPB_BASE_DOMAIN_NAME']
 TOP_URLS = os.getenv('TOP_URLS',
                      'https://{0}/npb/teams/5/top,'
                      'https://{0}/npb/teams/3/top,'
+                     'https://{0}/npb/teams/1/top,'
                      'https://{0}/npb/teams/376/top'
                      ).format(BASE_DOMAIN_NAME).split(',')
 TEAM_COLORS = os.getenv('TEAM_COLORS',
                         '#ffdd00,'
                         '#0096e0,'
+                        '#ef8200,'
                         '#940028'
                         ).split(',')
 
