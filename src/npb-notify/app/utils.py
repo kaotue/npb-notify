@@ -12,3 +12,10 @@ def conv_ave(val: str) -> float:
 
 def conv_date(val: str) -> datetime.date:
     return datetime.datetime.strptime(val, '%m月%d日').date()
+
+
+def conv_float(val: str) -> float:
+    if val == '-':
+        return -1.0
+    else:
+        return float(val)

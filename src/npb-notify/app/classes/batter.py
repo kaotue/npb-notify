@@ -11,7 +11,7 @@ class Batter(Player):
     打順: int
     位置: str
     打: str
-    打率: float
+    打率: float = 0.0
     RecentStats: List[BatterRecentStats] = None
     試合: int = 0
     打席: int = 0

@@ -13,8 +13,10 @@ class BatterSelector(BaseSelector):
         soup = BeautifulSoup(html, 'html.parser')
         header_title = soup.select_one('#js-tabDom01 > section:nth-child(1) > header > h2').get_text().strip()
         if header_title == '打者成績':
+            batter.打率 = utils.conv_float(soup.select_one('#js-tabDom01 > section:nth-child(1) > table > tbody > tr:nth-child(2) > td:nth-child(1)').get_text())
             batter.本塁打 = soup.select_one('#js-tabDom01 > section:nth-child(1) > table > tbody > tr:nth-child(2) > td:nth-child(8)').get_text()
         else:
+            batter.打率 = utils.conv_float(soup.select_one('#js-tabDom01 > section:nth-child(2) > table > tbody > tr:nth-child(2) > td:nth-child(1)').get_text())
             batter.本塁打 = soup.select_one('#js-tabDom01 > section:nth-child(2) > table > tbody > tr:nth-child(2) > td:nth-child(8)').get_text()
         rows = soup.select(f'#game_b > tbody > tr')
         recent_stats = []

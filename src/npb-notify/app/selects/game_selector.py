@@ -34,7 +34,6 @@ def get_batters(html, team_num):
             位置=row.select_one(f'td:nth-child(2)').get_text(),
             選手名=row.select_one(f'td:nth-child(3) > a').get_text(),
             打=row.select_one(f'td:nth-child(4)').get_text(),
-            打率=utils.conv_ave(row.select_one(f'td:nth-child(5)').getText()),
             link=f"https://{BASE_DOMAIN_NAME}{row.select_one(f'td:nth-child(3) > a').get('href')}",
         )
         batter = BatterSelector(url=batter.link).select(batter)
